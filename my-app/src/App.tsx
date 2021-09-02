@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   
   const [input, setInput] = useState("");
-const [output, setOutput] = useState("");
+  const [output, setOutput] = useState("");
 
 function ColorCodedFunction(color: any, input : any) {
     return <div style={{ color: color }}>{input}</div>;
@@ -21,7 +21,7 @@ function takeInput(event : any, customFunction : any) {
 
 return (
   <div className="center">
-    <label>This is one sweet input field, yo</label>
+    <label>Input field</label>
     <div>
       <input onChange={(e) => setInput(e.target.value)} />
       <button onClick={(e) => takeInput(e, ColorCodedFunction)}>submit</button>
