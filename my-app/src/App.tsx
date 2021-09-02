@@ -2,23 +2,21 @@ import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {const [input, setInput] = useState("");
+function App() {
+  
+  const [input, setInput] = useState("");
 const [output, setOutput] = useState("");
 
-function ColorCoded(input : any) {
-  if (input.indexOf("good")) {
-    return <div style={{ color: "green" }}>input</div>;
-  } else {
-    return <div style={{ color: "red" }}>input</div>;
-  }
+function ColorCodedFunction(color: any, input : any) {
+    return <div style={{ color: color }}>{input}</div>;
 }
 
-function takeInput(event : any, ColorCoded : any) {
+function takeInput(event : any, customFunction : any) {
   const value = input;
   if (value.indexOf("good") !== -1) {
-    setOutput(ColorCoded("good"));
+    setOutput(customFunction("green", input));
   } else {
-    setOutput(ColorCoded("NOPE"));
+    setOutput(customFunction("red", input));
   }
 }
 
@@ -27,7 +25,7 @@ return (
     <label>This is one sweet input field, yo</label>
     <div>
       <input onChange={(e) => setInput(e.target.value)} />
-      <button onClick={(e) => takeInput(e, ColorCoded)}>submit</button>
+      <button onClick={(e) => takeInput(e, ColorCodedFunction)}>submit</button>
     </div>
     <p>{output}</p>
   </div>
